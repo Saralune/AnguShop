@@ -35,5 +35,15 @@
       "quantity": 1,
       "id": 5
     }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "Dupond",
+      "firstName": "Jean",
+      "address": "102 micile fixe",
+      "phone": "0606060606",
+      "mail" : "jeandupond@mail.com"
+    }
   ]
 }

@@ -5,10 +5,12 @@ import { TrainingsComponent } from './components/trainings/trainings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { OrderComponent } from './components/order/order.component';
+import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
     { path : 'trainings', component : TrainingsComponent },
     { path : 'cart' , component : CartComponent },
+    { path : 'account' , component : AccountComponent },
     { path : 'order' , component : OrderComponent},
     { path : 'customer' , component : CustomerComponent},
     { path : '' , redirectTo : 'trainings', pathMatch : 'full' },
