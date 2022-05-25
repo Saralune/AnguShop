@@ -11,6 +11,8 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   cart : Training[] | undefined;
   amount : number = 0;
+
+
   constructor(private cartService : CartService , private router : Router) { }
 
   ngOnInit(): void {
@@ -25,6 +27,12 @@ export class CartComponent implements OnInit {
   }
 
   onNewOrder(){
-    this.router.navigateByUrl('customer');
+    if(!this.cartService.isAuth()) {  //si l'utilisateur n'est pas connecté, renvoyer au formulaire d'authentifcation
+      this.router.navigateByUrl('auth');
+    } else if(!this.cartService.isCust()){
+      this.router.navigateByUrl('customer');
+    } else { //sinon, envoyer vers le récap commande
+      this.router.navigateByUrl('order');
+    }
   }
 }

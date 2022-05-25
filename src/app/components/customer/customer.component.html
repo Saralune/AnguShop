@@ -1,33 +1,40 @@
 <div class="container">
+    <!-- Quand l'utilisateur, sur la page user, clique sur le bouton s'inscrire -->
 
-    <div class="col-md-3">
+    <!-- <div class="col-md-3">
         <form #f="ngForm" (ngSubmit)="onSaveCustomer(f.value)">
-        <div class="form-group">
-            <label class="control-label">Nom : </label>
-            <input type="text" name="name" required class="form-control" [(ngModel)]="cartService.getCustomer().name">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Prénom : </label>
-            <input type="text" name="firstName" class="form-control" [(ngModel)]="cartService.getCustomer().firstName">
-        </div>
-    
-        <div class="form-group">
-            <label class="control-label">Adresse : </label>
-            <input type="text" name="address" class="form-control" [(ngModel)]="cartService.getCustomer().address">
-    
             <div class="form-group">
-            <label class="control-label">Tel :</label>
-            <input type="text" name="phone" class="form-control" [(ngModel)]="cartService.getCustomer().phone">
+                <label class="control-label">Nom : </label>
+                <input type="text" name="name" required class="form-control"
+                    [(ngModel)]="cartService.getCustomer().name">
             </div>
-    
             <div class="form-group">
-            <label class="control-label">Email : </label>
-            <input type="text" name="email" required class="form-control" [(ngModel)]="cartService.getCustomer().email">
+                <label class="control-label">Prénom : </label>
+                <input type="text" name="firstName" class="form-control"
+                    [(ngModel)]="cartService.getCustomer().firstName">
             </div>
-            <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Next</button>
-        </div>
+
+            <div class="form-group">
+                <label class="control-label">Adresse : </label>
+                <input type="text" name="address" class="form-control" [(ngModel)]="cartService.getCustomer().address">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tel :</label>
+                <input type="text" name="phone" class="form-control" [(ngModel)]="cartService.getCustomer().phone">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Email : </label>
+                <input type="text" name="email" required class="form-control"
+                    [(ngModel)]="cartService.getCustomer().email">
+            </div>
+
+            <p></p>
+
+            <button type="submit" [disabled]="!f.valid" class="btn btn-primary">S'inscrire</button>
+
         </form>
-    </div>
+    </div> -->
 
 
     <!-- <div class="col-md-3">
@@ -58,6 +65,39 @@
         </div>
         </form>
     </div> -->
+
+
+    <div class="col-md-3">
+        <form [formGroup]="myForm" (ngSubmit)="onSaveCustomer(myForm)">
+        <div class="form-group">
+            <label class="control-label">Nom : </label>
+            <input type="text" formControlName="name" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Prénom : </label>
+            <input type="text" formControlName="firstName" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Adresse : </label>
+            <input type="text" formControlName="address" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Téléphone : </label>
+            <input type="text" formControlName="phone" required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Email : </label>
+            <input type="text" formControlName="email" required class="form-control">
+        </div>
+
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">S'inscrire</button>
+
+        </form>
+    </div>
 
 
 </div>

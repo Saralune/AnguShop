@@ -1,0 +1,43 @@
+<h2>Merci de vous connecter pour passer commande :</h2>
+
+<div class="col-md-3">
+
+    <div class="">
+        <form [formGroup]="myAuth" (ngSubmit)="onSaveUser(myAuth)">
+            <div class="form-group">
+                <label class="control-label">Identifiant : </label>
+                <input type="text" formControlName="userName" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Mot de passe : </label>
+                <input type="text" formControlName="password" required class="form-control">
+            </div>
+
+            <button type="submit" [disabled]="!myAuth.valid" class="btn btn-primary">S'inscrire</button>
+        </form>
+    </div>
+
+    <button type="button" (click)="onInscr(myAuth)" class="btn btn-primary">Créer un compte</button>
+
+        <!-- <form #f="ngForm" (ngSubmit)="onSaveCustomer(f.value)"> -->
+            <!-- <div class="form-group">
+                <label class="control-label">Identifiant : </label>
+                <input type="text" name="name" required class="form-control"
+                    [(ngModel)]="cartService.getUser().userName">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Mot de passe : </label>
+                <input type="text" name="firstName" class="form-control"
+                    [(ngModel)]="cartService.getUser().password">
+            </div> -->
+
+            <p></p>
+
+            <!-- renvoyer vers la page order ou account ? -->
+            <!-- <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Se connecter</button> -->
+
+
+
+        <!-- </form> -->
+</div>

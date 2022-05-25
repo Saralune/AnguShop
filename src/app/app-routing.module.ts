@@ -6,10 +6,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { OrderComponent } from './components/order/order.component';
 import { AccountComponent } from './components/account/account.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 const routes: Routes = [
     { path : 'trainings', component : TrainingsComponent },
     { path : 'cart' , component : CartComponent },
+    { path : 'auth' , component : AuthComponent },
     { path : 'account' , component : AccountComponent },
     { path : 'order' , component : OrderComponent},
     { path : 'customer' , component : CustomerComponent},

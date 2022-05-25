@@ -36,6 +36,7 @@
       "id": 5
     }
   ],
+  
   "customer": [
     {
       "id": 1,
@@ -44,6 +45,14 @@
       "address": "102 micile fixe",
       "phone": "0606060606",
       "mail" : "jeandupond@mail.com"
+    },
+    {
+      "id": 2,
+      "name": "Bond",
+      "firstName": "Jean",
+      "address": "Casino Royal",
+      "phone": "0606060606",
+      "mail" : "jeanbond@mail.com"
     }
   ]
 }
