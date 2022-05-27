@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class AccountComponent implements OnInit {
   isAuth : boolean = false;
 
-  constructor(private router: Router, public cartService: CartService) {
+  constructor(private router: Router, public cartService: CartService, private authService: AuthService) {
    if(localStorage.getItem('user')) this.isAuth = true;
   }
 
@@ -24,6 +25,15 @@ export class AccountComponent implements OnInit {
 
   onAuth(){
     this.router.navigateByUrl('auth');
+  }
+
+  onCart(){
+    this.router.navigateByUrl('cart');
+  }
+
+  onDeco(){
+    this.authService.deco();
+    this.router.navigateByUrl('')
   }
 
 }

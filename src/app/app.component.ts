@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ export class AppComponent {
   title = 'trainings-front-app';
   isAuth = false;
 
-  constructor(){
+  constructor(private authService: AuthService){
     if(localStorage.getItem('user')) this.isAuth = true;
   }
 
@@ -19,6 +20,7 @@ export class AppComponent {
   }
 
   onDeco(){
-    localStorage.removeItem('user');
+    // localStorage.removeItem('user');
+    this.authService.deco();
   }
 }

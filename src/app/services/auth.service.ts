@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+//import * as bcrypt from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,16 @@ export class AuthService {
     {username: "titi", password: "123", roles: ['USER']}
   ]
 
-  constructor() { }
+  constructor() { 
+  }
 
   saveUser(user : User){
-    //////////////////////////////////////////////////
-    localStorage.setItem('user', 'logged');
+    if(this.checkUser(user)){
+      //user.password = 
+      //const salt = bcrypt.genSaltSync(10);
+      //let pass = bcrypt.hashSync(user.password, salt);
+      localStorage.setItem('user', 'logged');
+    }
   }
 
   getUsers() : Object[]{
@@ -39,7 +45,8 @@ export class AuthService {
     }
   }
 
-  checkUser(user: User) : boolean{ //check si l'utilisateur fait partie des utilisateurs enregistrés dans le tableau users
+  //vérifie si l'utilisateur fait partie des utilisateurs enregistrés dans le tableau users
+  checkUser(user: User) : boolean{ 
     for (let i = 0; i < this.users.length; i++) {
       if(this.users[i].username == user.userName  && this.users[i].password == user.password) {
         return true;
@@ -47,4 +54,9 @@ export class AuthService {
     }
     return false;
   }
+
+  deco(){
+    localStorage.removeItem('user');
+  }
+
 }

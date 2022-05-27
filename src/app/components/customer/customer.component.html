@@ -67,35 +67,45 @@
     </div> -->
 
 
-    <div class="col-md-3">
+    <div class="col-md-6">
         <form [formGroup]="myForm" (ngSubmit)="onSaveCustomer(myForm)">
         <div class="form-group">
             <label class="control-label">Nom : </label>
             <input type="text" formControlName="name" required class="form-control">
         </div>
 
+        <p></p>
+
         <div class="form-group">
             <label class="control-label">Prénom : </label>
             <input type="text" formControlName="firstName" required class="form-control">
         </div>
+
+        <p></p>
 
         <div class="form-group">
             <label class="control-label">Adresse : </label>
             <input type="text" formControlName="address" required class="form-control">
         </div>
 
+        <p></p>
+
         <div class="form-group">
             <label class="control-label">Téléphone : </label>
             <input type="text" formControlName="phone" required class="form-control">
         </div>
+
+        <p></p>
 
         <div class="form-group">
             <label class="control-label">Email : </label>
             <input type="text" formControlName="email" required class="form-control">
         </div>
 
+        <p></p>
+        
         <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary" *ngIf ="btnInscr">S'inscrire</button>
-        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary" *ngIf ="btnUpd">Modifier</button>
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-outline-primary" *ngIf ="btnUpd">Modifier</button>
 
         </form>
     </div>
