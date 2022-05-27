@@ -20,4 +20,8 @@ export class OrderComponent implements OnInit {
         this.router.navigateByUrl('');
     }
   }
+
+  onInscr(){
+    this.router.navigateByUrl('customer');
+  }
 }

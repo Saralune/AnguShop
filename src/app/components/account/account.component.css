@@ -1,0 +1,12 @@
+th, td{
+    border: 1px solid black;
+}
+
+.card-body{
+    text-align: -webkit-center;
+}
+
+.btnConn{
+    align-self: center;
+    width: 30%;
+}

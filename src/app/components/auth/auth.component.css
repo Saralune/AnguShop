@@ -1,0 +1,15 @@
+.bodyAuth{
+    text-align: center;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.gridAuth{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+button{
+    margin-top: 20px;
+}

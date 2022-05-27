@@ -94,7 +94,8 @@
             <input type="text" formControlName="email" required class="form-control">
         </div>
 
-        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">S'inscrire</button>
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary" *ngIf ="btnInscr">S'inscrire</button>
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary" *ngIf ="btnUpd">Modifier</button>
 
         </form>
     </div>

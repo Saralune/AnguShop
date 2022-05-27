@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Customer } from 'src/app/model/customer.model';
 import { User } from 'src/app/model/user.model';
-import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +16,7 @@ export class AuthComponent implements OnInit {
   //customer: Customer = new Customer("Inconnu", "", "", "", "");
   user: User = new User("", "", ['USER'])
 
-  constructor(public cartService : CartService, private router : Router) {  
+  constructor(public authService : AuthService, private router : Router) {  
     //let customer = this.cartService.getCustomer(); 
     this.myAuth = new FormGroup ({
       userName: new FormControl(this.user.userName),
@@ -29,10 +29,10 @@ export class AuthComponent implements OnInit {
 
   onSaveUser(form: FormGroup){
     let testUser = new User(form.value.userName, form.value.password, ['USER']);
-    this.cartService.saveUser(testUser);  //sauvegarde l'utilisateur dans le LS
+    this.authService.saveUser(testUser);  //sauvegarde l'utilisateur dans le LS
 
-    if(this.cartService.checkUser(testUser)){ //regarde si l'utilisateur existe dans le fichier cart.service
-      if(!this.cartService.isCust()){
+    if(this.authService.checkUser(testUser)){ //regarde si l'utilisateur existe dans le fichier cart.service
+      if(!this.authService.isCust()){
         this.router.navigateByUrl('customer');
       } else {
         this.router.navigateByUrl('order');
@@ -40,8 +40,6 @@ export class AuthComponent implements OnInit {
     } else {
       alert('Votre compte n\'existe pas. Merci de réessayer')
     }
-
-
   }
 
   // onCheckUser(form : FormGroup){ ////////si jamais l'utilisateur est déjà connecté, bah on fait autre chose ?

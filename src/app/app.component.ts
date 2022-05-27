@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'trainings-front-app';
+  isAuth = false;
+
+  constructor(){
+    if(localStorage.getItem('user')) this.isAuth = true;
+  }
+
+  ngDoCheck(){
+    if(localStorage.getItem('user')) this.isAuth = true;
+    else this.isAuth = false;
+  }
+
+  onDeco(){
+    localStorage.removeItem('user');
+  }
 }

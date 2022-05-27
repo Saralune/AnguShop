@@ -10,7 +10,9 @@
           <li class="list-group-item">Adresse Client : {{cartService.getCustomer().address}}</li>
           <li class="list-group-item">Tel Client : {{cartService.getCustomer().phone}}</li>
           <li class="list-group-item">Email : {{cartService.getCustomer().email}}</li>
-        </ul>     
+        </ul>    
+        
+        <button class="btn btn-outline-success text-center" style="max-width: 200px;" (click)="onInscr()">Modifier mes infos</button>
       </div>
     
       <div class="col-md-6">

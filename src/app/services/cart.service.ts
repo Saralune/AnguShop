@@ -10,11 +10,6 @@ export class CartService {
   private cart : Map<number,Training>;
   private qty: number = 0;
 
-  private users = [
-    {username: "sarah", password: "123", roles: ['USER']},
-    {username: "titi", password: "123", roles: ['USER']}
-  ]
-
   constructor() {     
     // au démarrage du service, je récupère le contenu du local storage : command en cours
     let cart = localStorage.getItem('cart');
@@ -35,10 +30,6 @@ export class CartService {
 
   saveCustomer(customer : Customer) {
     localStorage.setItem('customer',JSON.stringify(customer));
-  }
-
-  saveUser(user : User){
-    localStorage.setItem('user',JSON.stringify(user));
   }
 
   saveCart() {
@@ -77,34 +68,5 @@ export class CartService {
   clear() {
     this.cart.clear();
     localStorage.clear();
-  }
-
-  getUsers() : Object[]{
-    return this.users;
-  }
-
-  isAuth(): boolean{
-    if(localStorage.getItem('user')){
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  isCust() : boolean{
-    if(localStorage.getItem('customer')){
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  checkUser(user: User) : boolean{ //check si l'utilisateur fait partie des utilisateurs enregistrés dans le tableau users
-    for (let i = 0; i < this.users.length; i++) {
-      if(this.users[i].username == user.userName) {
-        return true;
-      }
-    }
-    return false;
   }
 }

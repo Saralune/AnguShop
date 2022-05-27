@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, NavigationStart } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { TrainingsComponent } from './components/trainings/trainings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';

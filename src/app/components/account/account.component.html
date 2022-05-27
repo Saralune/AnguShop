@@ -1,1 +1,63 @@
-<h1>Mon compte</h1>
+<div class="card text-center" *ngIf="isAuth">
+  <h1>Mon compte</h1>
+
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="">Mes infos</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" aria-current="true" href="">Mes commandes</a>
+        </li>
+<!-- 
+        <li class="nav-item">
+            <a class="nav-link" aria-current="true" href="">Envoyer un message</a>
+        </li> -->
+      </ul>
+    </div>
+    
+    <div class="card-body">
+      <h5 class="card-title">Bonjour {{cartService.getCustomer().firstName}} !</h5>
+
+      <div class="d-flex flex-column col-md-6 align-items-center">
+        <p class="card-text">Voici les informations de votre compte :</p>
+
+        <table class="table">
+            <tbody class="">
+              <tr>
+                <th scope="row" class="col-md-3">Nom </th>
+                <td>{{cartService.getCustomer().name}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Prénom</th>
+                <td>{{cartService.getCustomer().firstName}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Adresse</th>
+                <td>{{cartService.getCustomer().address}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Téléphone</th>
+                <td>{{cartService.getCustomer().phone}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Email</th>
+                <td>{{cartService.getCustomer().email}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+       
+      <button class="btn btn-outline-success text-center" id="updateCust" style="max-width: 200px;" (click)="onUpdate()">Modifier mes infos</button>
+
+    </div>
+  </div>
+
+  <div *ngIf="!isAuth" class="d-flex flex-column text-center">
+    <h2>Vous n'êtes pas connecté.</h2>
+
+    <p>Bonjour, pour accéder à votre compte, merci de vous connecter !</p>
+
+    <button class="btn btn-primary btnConn" (click)="onAuth()">Me connecter</button>
+  </div>
