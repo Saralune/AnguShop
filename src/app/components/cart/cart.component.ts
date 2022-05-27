@@ -28,12 +28,15 @@ export class CartComponent implements OnInit {
   }
 
   onNewOrder(){
-    if(!this.authService.isAuth()) {  //si l'utilisateur n'est pas connecté, renvoyer au formulaire d'authentifcation
-      this.router.navigateByUrl('auth');
-    } else if(!this.authService.isCust()){
-      this.router.navigateByUrl('customer');
-    } else { //sinon, envoyer vers le récap commande
-      this.router.navigateByUrl('order');
-    }
+    if(this.cart != null && this.cart.length > 0){
+      if(!this.authService.isAuth()) {  //si l'utilisateur n'est pas connecté, renvoyer au formulaire d'authentifcation
+        this.router.navigateByUrl('auth');
+      } else if(!this.authService.isCust()){ //si il n'a pas de compte client/adresse, renvoyer vers le formulaire client
+        this.router.navigateByUrl('customer');
+      } else { //sinon, envoyer vers le récap commande
+        this.router.navigateByUrl('order');
+      }
+    } else alert('Votre panier est vide, vous ne pouvez pas passer commande.') //si panier vide
+
   }
 }

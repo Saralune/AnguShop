@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
+//import * as bcrypt from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,9 @@ export class AuthService {
   saveUser(user : User){
     if(this.checkUser(user)){
       //user.password = 
-      //const salt = bcrypt.genSaltSync(10);
-      //let pass = bcrypt.hashSync(user.password, salt);
+      // const salt = bcrypt.genSaltSync(10);
+      // user.password = bcrypt.hashSync(user.password, salt);
+      //localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem('user', 'logged');
     }
   }
