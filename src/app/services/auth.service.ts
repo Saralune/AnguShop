@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
-//import * as bcrypt from 'bcryptjs';
 
 @Injectable({
   providedIn: 'root'

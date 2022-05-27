@@ -59,6 +59,9 @@ export class AuthComponent implements OnInit {
   onInscr(form : FormGroup) {!
     //si customer pas renseigné
     //this.onSaveUser(form);
+
+    //faire une requete http post pour créer le compte en hashant le password
+
     this.router.navigateByUrl('customer');
   }
 
